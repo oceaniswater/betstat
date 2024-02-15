@@ -88,6 +88,5 @@ struct WinLoseView: View {
 
     private func formatText(value: UInt, percent: UInt) -> String {
         return percent > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
-        
     }
 }
