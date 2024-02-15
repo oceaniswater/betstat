@@ -11,6 +11,7 @@
 		867E56002B7D0677002FCFD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E55FF2B7D0677002FCFD0 /* ContentView.swift */; };
 		867E56022B7D0678002FCFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 867E56012B7D0678002FCFD0 /* Assets.xcassets */; };
 		867E56052B7D0678002FCFD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 867E56042B7D0678002FCFD0 /* Preview Assets.xcassets */; };
+		86B22A492B7E91E100C47576 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B22A482B7E91E100C47576 /* ProgressBar.swift */; };
 		86D384672B7D32A4007E48CC /* BetStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384662B7D32A4007E48CC /* BetStatViewModel.swift */; };
 		86D384692B7E139E007E48CC /* AverageCoefficientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384682B7E139E007E48CC /* AverageCoefficientView.swift */; };
 		86D3846B2B7E13D8007E48CC /* WinLoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D3846A2B7E13D8007E48CC /* WinLoseView.swift */; };
@@ -25,6 +26,7 @@
 		867E55FF2B7D0677002FCFD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		867E56012B7D0678002FCFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		867E56042B7D0678002FCFD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		86B22A482B7E91E100C47576 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		86D384662B7D32A4007E48CC /* BetStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetStatViewModel.swift; sourceTree = "<group>"; };
 		86D384682B7E139E007E48CC /* AverageCoefficientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCoefficientView.swift; sourceTree = "<group>"; };
 		86D3846A2B7E13D8007E48CC /* WinLoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				86D384682B7E139E007E48CC /* AverageCoefficientView.swift */,
 				86D3846A2B7E13D8007E48CC /* WinLoseView.swift */,
+				86B22A482B7E91E100C47576 /* ProgressBar.swift */,
 			);
 			path = BetStatViews;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				86D3846F2B7E1494007E48CC /* BetCompanyModel.swift in Sources */,
 				86D384672B7D32A4007E48CC /* BetStatViewModel.swift in Sources */,
 				867E55FE2B7D0677002FCFD0 /* betstatApp.swift in Sources */,
+				86B22A492B7E91E100C47576 /* ProgressBar.swift in Sources */,
 				86D3846D2B7E1453007E48CC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
