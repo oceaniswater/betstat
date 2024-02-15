@@ -45,7 +45,7 @@ struct WinLoseView: View {
                             .frame(width: calculateBarWidth(value: company.wins, total: company.sumBets, maxWidth: geometry.size.width), height: barHeight)
                             .foregroundColor(.green)
                             .opacity(barOpacity)
-                        Text(formatText(type: .win, value: company.wins, percent: vm.getPercentWins(company)))
+                        Text(formatText(value: company.wins, percent: vm.getPercentWins(company)))
                             .font(Font.footnote.weight(.bold))
                             .minimumScaleFactor(minScaleFactor)
                             .fixedSize(horizontal: true, vertical: false)
@@ -55,7 +55,7 @@ struct WinLoseView: View {
                             .frame(width: calculateBarWidth(value: company.loses, total: company.sumBets, maxWidth: geometry.size.width), height: barHeight)
                             .foregroundColor(.red)
                             .opacity(barOpacity)
-                        Text(formatText(type: .lose, value: company.loses, percent: vm.getPercentWins(company)))                            .font(Font.footnote.weight(.bold))
+                        Text(formatText(value: company.loses, percent: vm.getPercentLoses(company)))                            .font(Font.footnote.weight(.bold))
                             .minimumScaleFactor(minScaleFactor)
                             .fixedSize(horizontal: true, vertical: false)
                     }
@@ -64,7 +64,7 @@ struct WinLoseView: View {
                             .frame(width: calculateBarWidth(value: company.returns, total: company.sumBets, maxWidth: geometry.size.width), height: barHeight)
                             .foregroundColor(.gray)
                             .opacity(barOpacity)
-                        Text(formatText(type: .returns, value: company.returns, percent: vm.getPercentWins(company)))
+                        Text(formatText(value: company.returns, percent: vm.getPercentReturns(company)))
                             .font(Font.footnote.weight(.bold))
                             .minimumScaleFactor(minScaleFactor)
                             .fixedSize(horizontal: true, vertical: false)
@@ -86,15 +86,8 @@ struct WinLoseView: View {
         case returns
     }
 
-    private func formatText(type: BetsResult, value: UInt, percent: UInt) -> String {
-        switch type {
-        case .win:
-            return vm.getPercentWins(company) > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
-        case .lose:
-            return vm.getPercentLoses(company) > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
-        case .returns:
-            return vm.getPercentReturns(company) > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
-        }
+    private func formatText(value: UInt, percent: UInt) -> String {
+        return percent > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
         
     }
 }
