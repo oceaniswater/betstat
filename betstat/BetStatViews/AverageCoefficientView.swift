@@ -12,10 +12,7 @@ struct AverageCoefficientView: View {
     var company: BetCompanyModel
     @EnvironmentObject var vm: BetStatViewModel
     
-    private let barHeight: CGFloat = 10
-    private let progressBarOpacity: Double = 0.8
-    private let barOpacity: Double = 0.3
-    private let widthBarPadding: Float = 115
+    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,44 +21,21 @@ struct AverageCoefficientView: View {
             
             GeometryReader { geometry in
                 HStack {
-                    VStack(spacing: 10) {
-                        ZStack(alignment: .leading) {
-                            Rectangle()
-                                .frame(width: geometry.size.width - CGFloat(widthBarPadding), height: barHeight)
-                                .opacity(barOpacity)
-                                .foregroundColor(.gray)
-                            
-                            Rectangle()
-                                .frame(width: CGFloat(company.averageWinCoefficient / company.maxCoef) * (geometry.size.width - CGFloat(widthBarPadding)), height: barHeight)
-                                .foregroundColor(.green)
-                                .opacity(progressBarOpacity)
-                        }
-                        
-                        ZStack(alignment: .leading) {
-                            Rectangle()
-                                .frame(width: geometry.size.width - CGFloat(widthBarPadding), height: barHeight)
-                                .opacity(barOpacity)
-                                .foregroundColor(.gray)
-                            
-                            Rectangle()
-                                .frame(width: CGFloat(company.averageLoseCoefficient / company.maxCoef) * (geometry.size.width - CGFloat(widthBarPadding)), height: barHeight)
-                                .foregroundColor(.red)
-                                .opacity(progressBarOpacity)
-                        }
-                        
-                        ZStack(alignment: .leading) {
-                            Rectangle()
-                                .frame(width: geometry.size.width - CGFloat(widthBarPadding), height: barHeight)
-                                .opacity(barOpacity)
-                                .foregroundColor(.gray)
-                            
-                            Rectangle()
-                                .frame(width: CGFloat(company.averageReturnCoefficient / company.maxCoef) * (geometry.size.width - CGFloat(widthBarPadding)), height: barHeight)
-                                .foregroundColor(Color(uiColor: .lightGray))
-                                .opacity(progressBarOpacity)
-                            
-                        }
+                    VStack(alignment: .leading, spacing: 10) {
+                        ProgressBar(avgCoefficient: company.averageWinCoefficient,
+                                    maxCoefficient: company.maxCoef,
+                                    progressColor: .green,
+                                    width: geometry.size.width)
+                        ProgressBar(avgCoefficient: company.averageLoseCoefficient,
+                                    maxCoefficient: company.maxCoef,
+                                    progressColor: .red,
+                                    width: geometry.size.width)
+                        ProgressBar(avgCoefficient: company.averageReturnCoefficient,
+                                    maxCoefficient: company.maxCoef,
+                                    progressColor: Color(uiColor: .lightGray),
+                                    width: geometry.size.width)
                     }
+                    
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Выигрыш")
                         Text("Проигрыш")
@@ -82,3 +56,8 @@ struct AverageCoefficientView: View {
         .padding()
     }
 }
+
+#Preview(body: {
+    AverageCoefficientView(company: K.shared.companies.first!)
+        .environmentObject(BetStatViewModel())
+})

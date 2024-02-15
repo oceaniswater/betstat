@@ -90,3 +90,8 @@ struct WinLoseView: View {
         return percent > minPercentForTruncation ? "\(value) (\(percent)%)": "\(value)"
     }
 }
+
+#Preview(body: {
+    WinLoseView(company: K.shared.companies.first!)
+        .environmentObject(BetStatViewModel())
+})
