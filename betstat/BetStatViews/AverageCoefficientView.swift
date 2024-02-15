@@ -65,7 +65,7 @@ struct AverageCoefficientView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Выигрыш")
                         Text("Проигрыш")
-                        Text("Выигрыш")
+                        Text("Возврат")
                     }
                     .font(.footnote)
                     .foregroundStyle(.gray)
